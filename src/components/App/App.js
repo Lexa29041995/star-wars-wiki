@@ -5,7 +5,7 @@ const App = () => {
 
   const swapi = new SwapiServices();
   
-  swapi.getPerson(3)
+  swapi.getAllPlanets()
     .then ((body) => {
         console.log(body);
     })
