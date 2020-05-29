@@ -8,13 +8,13 @@ const Header =() => {
             <h1>Star Wars Wiki</h1>
             <ul className ='d-flex main_nav'>
                 <li>
-                    <a href = '#'>People</a>
+                    <a href = 'fdsf'>People</a>
                 </li>
                 <li>
-                    <a href = '#'>Planets</a>
+                    <a href = 'dfs'>Planets</a>
                 </li>
                 <li>
-                    <a href = '#'>Ships</a>
+                    <a href = 'fdsfs'>Ships</a>
                 </li>
             </ul>
         </div>

@@ -15,16 +15,16 @@ export default class RandomPlanet extends React.Component {
 
     state = {
         name: null,
-        diametr: null,
+        diameter: null,
         population: null,
         gravity: null,
     }
 
     updatePlanet() {
-        this.swapi.getOwnPlanet(1).then((planet)=>{
+        this.swapi.getOwnPlanet(4).then((planet)=>{
             this.setState({
                 name: planet.name,
-                diametr: planet.diametr,
+                diameter: planet.diameter,
                 population: planet.population,
                 gravity: planet.gravity,
             });
@@ -33,7 +33,7 @@ export default class RandomPlanet extends React.Component {
     
     render() {
 
-        const {name, diametr, population, gravity} =this.state
+        const {name, diameter, population, gravity} =this.state
 
         return (
             <div className ='RandomPlanet'>
@@ -42,8 +42,8 @@ export default class RandomPlanet extends React.Component {
                 <img src ="https://versiya.info/uploads/posts/2019-09/1568404448_photovisi-download-1.jpg" alt='Planet' />
                 <ul className='planet-infoblock'>
                     <li>
-                        <span>diametr</span>
-                        <span>{diametr}</span>
+                        <span>diameter</span>
+                        <span>{diameter}</span>
                     </li>
                     <li>
                         <span>population</span>
