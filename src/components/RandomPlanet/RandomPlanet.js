@@ -3,6 +3,7 @@ import React from 'react';
 import SwapiServices from '../../services/SwapiServices'
 
 import './RandomPlanet.css';
+import Loader from '../Loader';
 
 export default class RandomPlanet extends React.Component {
     
@@ -14,32 +15,37 @@ export default class RandomPlanet extends React.Component {
     swapi = new SwapiServices();
 
     state = {
-        name: null,
-        diameter: null,
-        population: null,
-        gravity: null,
+        planet: {},
+        load: true,
+    }
+
+    onPlanetLoaded =(planet) => {
+        this.setState({
+            planet,
+            load: false,
+    });
     }
 
     updatePlanet() {
-        this.swapi.getOwnPlanet(4).then((planet)=>{
-            this.setState({
-                name: planet.name,
-                diameter: planet.diameter,
-                population: planet.population,
-                gravity: planet.gravity,
-            });
-        });
+        const id = Math.round(Math.random()*10);
+        this.swapi.getOwnPlanet(id)
+            .then(this.onPlanetLoaded);
     }
     
     render() {
 
-        const {name, diameter, population, gravity} =this.state
+        const { planet:{name, diameter, population, gravity, id},
+        load} =this.state
+
+        if (load) {
+            return <Loader />;
+        }
 
         return (
             <div className ='RandomPlanet'>
             <h3>{name}</h3>
             <div className ='d-flex planet_block'>
-                <img src ="https://versiya.info/uploads/posts/2019-09/1568404448_photovisi-download-1.jpg" alt='Planet' />
+                <img src ={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} alt='Planet' />
                 <ul className='planet-infoblock'>
                     <li>
                         <span>diameter</span>

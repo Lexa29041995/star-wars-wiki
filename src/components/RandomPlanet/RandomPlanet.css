@@ -16,3 +16,8 @@
 .RandomPlanet .planet_block .planet-infoblock span:first-child {
     margin-right: 10px;
 }
+
+.Loader {
+    display: block;
+    margin:0 auto;
+}

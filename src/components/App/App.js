@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import SwapiServices from '../../services/SwapiServices';
+import SwapiServices from '../../services/SwapiServices';
 import './App.css';
 
 import Header from '../Header';
@@ -10,12 +10,12 @@ import DetailsInfo from '../DetailsInfo';
 
 const App = () => {
 
-//   const swapi = new SwapiServices();
+  const swapi = new SwapiServices();
   
-//   swapi.getAllPlanets()
-//     .then ((body) => {
-//         console.log(body);
-//     })
+  swapi.getAllPlanets()
+    .then ((body) => {
+        console.log(body);
+    })
 
     return (
         <div className ='App'>
