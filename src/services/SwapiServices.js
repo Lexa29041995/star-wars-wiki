@@ -26,8 +26,9 @@ export default class SwapiServices {
         const response = await this.getData('/starships/');
         return(response.results)
     }
-    getOwnStarship(id) {
-        return this.getData(`/starships/${id}/`);
+    async getOwnStarship(id) {
+        const starships = await this.getData(`/starships/${id}/`)
+        return this.transformShip(starships);
     }
 
     async getAllPlanets() {
@@ -55,13 +56,6 @@ export default class SwapiServices {
     }
 
     transformPerson = (person) => {
-        console.log({
-            id: this.getId(person),
-            name: person.name,
-            gender: person.gender,
-            mass: person.mass,
-            homeworld: person.homeworld, 
-        })
 
         return {
             id: this.getId(person),
@@ -69,6 +63,24 @@ export default class SwapiServices {
             gender: person.gender,
             mass: person.mass,
             homeworld: person.homeworld, 
+        }
+    }
+
+    transformShip = (starships) => {
+        console.log({
+            id: this.getId(starships),
+            name: starships.name,
+            model: starships.model,
+            passengers: starships.passengers,
+            length: starships.length,
+        })
+
+        return {
+            id: this.getId(starships),
+            name: starships.name,
+            model: starships.model,
+            passengers: starships.passengers,
+            length: starships.length, 
         }
     }
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SwapiServices from '../../services/SwapiServices';
+
 import './App.css';
 
 import Header from '../Header';
@@ -8,25 +8,41 @@ import RandomPlanet from '../RandomPlanet';
 import ItemsList from '../ItemsList';
 import DetailsInfo from '../DetailsInfo';
 
-const App = () => {
-
-  const swapi = new SwapiServices();
+export default class App extends React.Component {
   
-  swapi.getAllPlanets()
-    .then ((body) => {
-        console.log(body);
-    })
+  state = {
+      isRandomPlanet: true,
+  }  
 
+  onTogglePlanet =() => {
+      this.setState((prevState) => {
+          return {isRandomPlanet: !prevState.isRandomPlanet,}
+      });
+  }
+
+  render() {
     return (
         <div className ='App'>
             <Header />
-            <RandomPlanet />
+            {this.state.isRandomPlanet && <RandomPlanet />}
+            <button 
+            onClick = {this.onTogglePlanet}>
+                ON/OFF planet
+            </button>
             <div className ='d-flex justify-content-spacy-beetwen'>
                 <ItemsList />
                 <DetailsInfo />
             </div>
         </div>
     )
-}
+  }  
 
-export default App;
+//   const swapi = new SwapiServices();
+  
+//   swapi.getAllPlanets()
+//     .then ((body) => {
+//         console.log(body);
+//     })
+
+    
+}

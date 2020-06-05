@@ -4,12 +4,14 @@ import SwapiServices from '../../services/SwapiServices'
 
 import './RandomPlanet.css';
 import Loader from '../Loader';
+import ErrorComponent from '../ErrorComponent/ErrorComponent';
 
 export default class RandomPlanet extends React.Component {
     
     constructor() {
         super();
         this.updatePlanet();
+        setInterval(this.updatePlanet, 2000);
     }
 
     swapi = new SwapiServices();
@@ -17,6 +19,16 @@ export default class RandomPlanet extends React.Component {
     state = {
         planet: {},
         load: true,
+        error: false,
+    }
+
+    componentDidMount() {
+        this.updatePlanet();
+        setInterval(this.updatePlanet, 5000);
+    }
+
+    componentWillUnmount() {
+        console.log('Will unmount')
     }
 
     onPlanetLoaded =(planet) => {
@@ -26,26 +38,48 @@ export default class RandomPlanet extends React.Component {
     });
     }
 
-    updatePlanet() {
+    onError = () => {
+        console.log('Catch a mistake');
+        this.setState({
+            error: true,
+            load: false,
+        });
+    };
+
+    updatePlanet = () => {
         const id = Math.round(Math.random()*10);
+        // const id = 0;
         this.swapi.getOwnPlanet(id)
-            .then(this.onPlanetLoaded);
+            .then(this.onPlanetLoaded)
+            .catch(this.onError);
     }
     
     render() {
 
-        const { planet:{name, diameter, population, gravity, id},
-        load} =this.state
+        const { planet, load, error} =this.state;
 
-        if (load) {
-            return <Loader />;
-        }
+        const errorContent = error ? <ErrorComponent /> : null
+        const loader = load ? <Loader /> : null;
+        const content = (!load && !error) ? <PlanetView planet={planet} /> : null;
 
         return (
-            <div className ='RandomPlanet'>
-            <h3>{name}</h3>
-            <div className ='d-flex planet_block'>
-                <img src ={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} alt='Planet' />
+            <div className = 'RandomPlanet'>
+                {errorContent}
+                {loader}
+                {content}
+            </div>
+        );
+    };
+}
+
+const PlanetView = (props) => {
+    const { id, name, diameter, population, gravity} = props.planet;
+
+    return (
+        <React.Fragment>
+        <h3>{name}</h3>
+        <div className ='d-flex planet_block'>
+            <img src ={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`} alt='Planet' />
                 <ul className='planet-infoblock'>
                     <li>
                         <span>diameter</span>
@@ -60,8 +94,8 @@ export default class RandomPlanet extends React.Component {
                         <span>{gravity}</span>
                     </li>
                 </ul>
-            </div>
         </div>
-        );
-    };
+        </React.Fragment>
+        
+    )
 }
