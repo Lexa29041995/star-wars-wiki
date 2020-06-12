@@ -1,3 +1,3 @@
 import ErrorComponent from './ErrorComponent'
 
-export ErrorComponent
+export default ErrorComponent

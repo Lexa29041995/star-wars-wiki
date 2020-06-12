@@ -5,19 +5,25 @@ import './App.css';
 
 import Header from '../Header';
 import RandomPlanet from '../RandomPlanet';
-import ItemsList from '../ItemsList';
-import DetailsInfo from '../DetailsInfo';
 import ErrorTest from '../ErrorTest';
+import ErrorComponent from '../ErrorComponent';
+import PeoplePage from '../PeoplePage'
+import SwapiServices from '../../services/SwapiServices';
+import ItemsList from '../Loader';
+import DetailsInfo from '../DetailsInfo';
+
 
 export default class App extends React.Component {
-  
+    
+swapi = new SwapiServices()
+
   state = {
       isRandomPlanet: true,
-      selectedPerson: null,
+      error: false,
   }  
 
   componentDidCatch() {
-      console.log('произошла ошибка')
+      this.setState({ error: true});
   }
 
   onTogglePlanet =() => {
@@ -26,13 +32,10 @@ export default class App extends React.Component {
       });
   }
 
-  onPersonSelect = (id) => {
-    this.setState({
-        selectedPerson: id
-    });
-  }
-
   render() {
+    if (this.state.error) {
+          return <ErrorComponent />
+    }
     return (
         <div className ='App'>
             <Header />
@@ -42,20 +45,18 @@ export default class App extends React.Component {
                 ON/OFF planet
             </button>
             <ErrorTest />
-            <div className ='d-flex justify-content-spacy-beetwen'>
-                <ItemsList onItemClick = {this.onPersonSelect} />
-                <DetailsInfo personId = {this.state.selectedPerson}/>
+            <PeoplePage />
+            <div className =' PeoplePage d-flex justify-content-spacy-beetwen'>
+                <ItemsList 
+                    onItemClick = {this.onPersonSelect} 
+                    getData = {this.swapi.getAllPlanets}
+                    renderItem = {(item) =>
+                         `${item.name} (${item.population}, ${item.diameter}m)`}
+                />
+                <DetailsInfo 
+                    personId = {this.state.selectedPerson}/>
             </div>
         </div>
     )
-  }  
-
-//   const swapi = new SwapiServices();
-  
-//   swapi.getAllPlanets()
-//     .then ((body) => {
-//         console.log(body);
-//     })
-
-    
+  }      
 }
