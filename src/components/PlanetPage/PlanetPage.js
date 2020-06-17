@@ -2,24 +2,13 @@ import React from 'react';
 import ItemsList from '../ItemsList'
 import DetailsInfo from '../DetailsInfo'
 
-import './PeoplePage.css'
+import './PlanetPage.css'
 import ErrorComponent from '../ErrorComponent';
 import SwapiServices from '../../services/SwapiServices';
+import Row from '../Row';
 
-const Row = ({ left, right}) => {
-    return (
-        <div className = 'Row d-flex row '>
-            <div className= 'col'>
-                {left}
-            </div>
-            <div className = 'col'>
-                {right}
-            </div>
-        </div>
-    );
-}
 
-export default class PeoplePage extends React.Component {
+export default class PlanetPage extends React.Component {
 
     swapi = new SwapiServices();
 
@@ -46,10 +35,9 @@ export default class PeoplePage extends React.Component {
         const itemsList = (
             <ItemsList 
                     onItemClick = {this.onPersonSelect} 
-                    getData = {this.swapi.getAllPeople}
                     renderItem = {(item) =>
                          `${item.name}
-                            (${item.gender}, ${item.mass}kg)`
+                            (${item.diameter})`
                     }
                 />
         )

@@ -1,32 +1,22 @@
 import React from 'react';
 
 import './ItemsList.css';
-import Loader from '../Loader';
-import '../Loader/Loader.css'
 
-export default class ItemsList extends React.Component {
+import SwapiServices from '../../services/SwapiServices';
+import withData from '../helpers/withData';
 
-    state = {
-        item: null
-    }
+ const ItemsList =(props) => {
 
-    componentDidMount() {
-        this.props.getData().then((item)=> {
-                this.setState({
-                    item
-                })
-                item.forEach( item => console.log(item.name))
-            });
-    }
+    const {data, onItemClick, renderItem} = props;
 
-    renderItems (arr) {
+    const renderItems = (arr) => {
         return arr.map((item) => {
-            const text = this.props.renderItem(item)
+            const text = renderItem(item)
             return (
                 <li 
                 className = 'list-group-item'
                 key = {item.id}
-                onClick = {() => this.props.onItemClick(item.id)}
+                onClick = {() => onItemClick(item.id)}
                 > 
                     {text}
                 </li>
@@ -34,23 +24,20 @@ export default class ItemsList extends React.Component {
         });
     }
 
-    render() {
 
-        const { item } =this.state;
-
-        if (!item) {
-            return <Loader />
-        }
-
-        const items = this.renderItems(item)
+        const items = renderItems(data)
         
         return (
             <ul className = 'ItemList'>
                 {items}
             </ul>
         )
-    };
+
 }
+
+const { getAllPeople} = new SwapiServices ();
+
+export default withData(ItemsList, getAllPeople);
     
         
     
