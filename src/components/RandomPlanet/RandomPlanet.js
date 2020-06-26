@@ -52,7 +52,6 @@ export default class RandomPlanet extends React.Component {
 
     updatePlanet = () => {
         const id = Math.round(Math.random()*10);
-        // const id = 0;
         this.swapi.getOwnPlanet(id)
             .then(this.onPlanetLoaded)
             .catch(this.onError);

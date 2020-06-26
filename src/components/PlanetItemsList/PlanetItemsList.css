@@ -1,4 +1,4 @@
-.ItemList {
+.PlanetItemList {
     background-color: #464141;
     padding: 0px;
     margin: 0;
@@ -10,6 +10,6 @@
     cursor: pointer;
 }
 
-.ItemList li:hover {
+.PlanetItemList li:hover {
     background-color: grey;
 }

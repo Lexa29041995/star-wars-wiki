@@ -1,8 +1,8 @@
 import React from 'react';
-import PlanetItemsList from '../PlanetItemsList'
-import PlanetDetailsInfo from '../PlanetDetailsInfo'
+import ItemsList from '../ItemsList'
+import DetailsInfo from '../DetailsInfo'
 
-import './PlanetPage.css'
+import './PeoplePage.css'
 import ErrorComponent from '../ErrorComponent';
 import SwapiServices from '../../services/SwapiServices';
 import Row from '../Row';
@@ -13,7 +13,7 @@ export default class PeoplePage extends React.Component {
     swapi = new SwapiServices();
 
     state = {
-        selectedPlanet: 3,
+        selectedPerson: 3,
         error: false,
     }
 
@@ -21,9 +21,9 @@ export default class PeoplePage extends React.Component {
         this.setState({ error: true});
     }
 
-    onPlanetSelect = (id) => {
+    onPersonSelect = (id) => {
         this.setState({
-            selectedPlanet: id
+            selectedPerson: id
         });
       }
 
@@ -32,26 +32,27 @@ export default class PeoplePage extends React.Component {
             return <ErrorComponent />
         }
 
-        const planetItemsList = (
-            <PlanetItemsList 
-                    onItemClick = {this.onPlanetSelect} 
+        const itemsList = (
+            <ItemsList 
+                    onItemClick = {this.onPersonSelect} 
                     renderItem = {(item) =>
                          `${item.name} 
-                            (diameter: ${item.diameter} m)`
+                            (mass: ${item.mass} kg)`
                     }
                 />
         )
 
-        const planetDetailsInfo = (
-            <PlanetDetailsInfo 
-                    planetId = {this.state.selectedPlanet}
+        const detailInfo = (
+            <DetailsInfo 
+                    personId = {this.state.selectedPerson}
             />
         )
 
         return (
-            <div className ='PlanetPage'>
-                <Row left = {planetItemsList} right = {planetDetailsInfo} />
+            <div className ='PeoplePage'>
+                <Row left = {itemsList} right = {detailInfo} />
             </div>
         )
     }
 }
+

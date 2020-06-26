@@ -3,14 +3,18 @@
 }
 
 .Header h1 {
-    width: 40%;
     margin-bottom: 0;
+}
+
+.Header a:hover {
+    text-decoration: none;
 }
 
 .Header .main_nav {
     width: 60%;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     list-style: none;
     margin-bottom: 0;
+    font-size: 25px;
 }

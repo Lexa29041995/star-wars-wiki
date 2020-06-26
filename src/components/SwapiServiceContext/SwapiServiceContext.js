@@ -1,12 +1,6 @@
 import React from 'react'
 
-const { 
-    Provider: SwapiProvider,
-    Consumer: SwapiConsumer 
-} = React.createContext();
+const SwapiContext = React.createContext();
 
-export {
-    SwapiProvider,
-    SwapiConsumer
-}
+export default SwapiContext;
 

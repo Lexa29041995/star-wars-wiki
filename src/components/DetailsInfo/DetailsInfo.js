@@ -2,11 +2,11 @@ import React from 'react';
 import './DetailsInfo.css';
 import SwapiServices from '../../services/SwapiServices';
 import ErrorTest from '../ErrorTest';
-import {SwapiConsumer} from '../SwapiServiceContext'
+import SwapiContext from '../SwapiServiceContext';
 
 export default class DetailsInfo extends React.Component {
     
-    swapi = new SwapiServices();
+    static contextType = SwapiContext;
 
     state = {
         person: null
@@ -27,7 +27,7 @@ export default class DetailsInfo extends React.Component {
             return;
         }
 
-        this.swapi.getPerson(personId).then((person) => {
+        this.context.getPerson(personId).then((person) => {
             this.setState({person});
         })
     }
@@ -39,40 +39,49 @@ export default class DetailsInfo extends React.Component {
         }
 
         const { id, name, mass,
-            birthDate, gender} = this.state.person;
+            birthDate, gender, hairColor, height, eyeColor, created} = this.state.person;
 
         return (
-            <SwapiConsumer>
-                {
-                    (swapi) => {
-                       return (
-                        <div className ='DetailsInfo'>
-                        <h3>{name}</h3>
-                        <div className ="d-flex info_block">
-                        <img src ={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} alt='Person' />
-                            <ul className ='detail_infoblock'>
-                                <li>
-                                    <span>mass</span>
-                                    <span>{this.swapi.mass}</span>
-                                </li>
-                                <li>
-                                    <span>birth date</span>
-                                    <span>{birthDate}</span>
-                                </li>
-                                <li>
-                                    <span>gender</span>
-                                    <span>{gender}</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <ErrorTest />
+                <div className ='DetailsInfo'>
+                <h3>{name}</h3>
+                <div className ="d-flex info_block">
+                    <img src ={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} alt='Person' />
+                        <ul className ='detail_infoblock'>
+                            <li>
+                                <span>mass: </span>
+                                <span>{mass} kg</span>
+                            </li>
+                            <li>
+                                <span>birth date: </span>
+                                <span>{birthDate}</span>
+                            </li>
+                            <li>
+                                <span>gender: </span>
+                                <span>{gender}</span>
+                            </li>
+                            <li>
+                                <span>hair color: </span>
+                                <span>{hairColor}</span>
+                            </li>
+                            <li>
+                                <span>height: </span>
+                                <span>{height} </span>
+                            </li>
+                            <li>
+                                <span>eye color: </span>
+                                <span>{eyeColor}</span>
+                            </li>
+                            <li>
+                                <span>created: </span>
+                                <span>{created}</span>
+                            </li>
+                        </ul>
                     </div>
-                       ) 
-                    }
-                }
+                        {/* <ErrorTest /> */}
+                    </div>
+                    ) 
                 
-            </SwapiConsumer> 
-        );
     }
     
 }
+

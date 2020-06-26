@@ -1,24 +1,24 @@
-.DetailsInfo {
+.StarShipsDetailsInfo {
     background-color: grey;
     padding: 15px;
     height: 100%;
 }
 
-.DetailsInfo .info_block {
+.StarShipsDetailsInfo .info_block {
     align-items: center;
     flex-direction: column;
 }
 
-.DetailsInfo h3 {
+.StarShipsDetailsInfo h3 {
     text-align: center;
 }
 
-.DetailsInfo .info_block img {
+.StarShipsDetailsInfo .info_block img {
     width: 50%;
-    transform: scale(2);
-    margin: 50px 0;
+    transform: scale(4);
+    margin: 80px 0;
 }
-.DetailsInfo .detail_infoblock {
+.StarShipsDetailsInfo .detail_infoblock {
     list-style: none;
     text-align: center;
     padding: 0;
