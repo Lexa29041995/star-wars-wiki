@@ -49,7 +49,7 @@ swapi = new SwapiServices()
                     <RandomPlanet />
                     {/* <ErrorTest /> */}
                     <Route path = '/' exact>
-                        <h1>Welcome to Star Wars Wiki!</h1>
+                        <h2>Welcome to Star Wars Wiki!</h2>
                     </Route>
                     <Route path = '/people'>
                         <h3>People</h3>

@@ -2,7 +2,8 @@
     margin-bottom: 30px;
 }
 
-.Header h1 {
+.App .Header h1 {
+    width: 40%;
     margin-bottom: 0;
 }
 
@@ -16,5 +17,5 @@
     align-items: center;
     list-style: none;
     margin-bottom: 0;
-    font-size: 25px;
+    font-size: 20px;
 }
