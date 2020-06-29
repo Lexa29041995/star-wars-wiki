@@ -35,7 +35,7 @@ export default class PlanetDetailsInfo extends React.Component {
     render () {
 
         if(!this.state.planet) {
-            return <p>Please, choose the planet</p>
+            return <p className ='PlanetDetailsInfo'>Please, choose the planet</p>
         }
 
         const { id, name, diameter,

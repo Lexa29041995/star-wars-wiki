@@ -1,11 +1,125 @@
+@import url('../../fonts/fonts.css');
 .App {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px 0;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
 }
-
 .App h2 {
-    text-align: center;
+  text-align: center;
 }
-
-
+.App h1,
+.App h2,
+.App h3 {
+  font-family: "Proxima Nova", serif;
+}
+.App li {
+  font-family: "Open Sans", serif;
+}
+@media (max-width: 950px) {
+  .App {
+    padding: 10px 0;
+  }
+  .App .Header {
+    margin-bottom: 15px;
+  }
+  .App .RandomPlanet {
+    margin-bottom: 15px;
+  }
+  .App h1 {
+    font-size: 35px;
+  }
+  .App h2 {
+    font-size: 30px;
+  }
+  .App h3 {
+    font-size: 25px;
+  }
+  .App li {
+    font-size: 15px;
+  }
+}
+@media (max-width: 800px) {
+  .App .StarShipsDetailsInfo .info_block img,
+  .App .VehiclesDetailsInfo .info_block img {
+    transform: scale(3);
+    margin: 50px;
+  }
+  .App li {
+    font-size: 12px;
+  }
+  .App a {
+    font-size: 15px;
+  }
+  .App h1 a {
+    font-size: 35px;
+  }
+}
+@media (max-width: 700px) {
+  .App h1 a {
+    font-size: 25px;
+  }
+  .App h2,
+  .App h3 {
+    font-size: 20px;
+  }
+  .App a {
+    font-size: 12px;
+  }
+  .App .Row .LiItems {
+    padding: 10px;
+  }
+  .App .Row .DetailsInfo {
+    padding: 0;
+  }
+  .App .ErrorComponent img {
+    max-width: 50px;
+  }
+}
+@media (max-width: 576px) {
+  .App h1 {
+    font-size: 25px;
+  }
+  .App .Header ul {
+    padding: 0;
+  }
+  .App .DetailsInfo .info_block img,
+  .App .SpeciesDetailsInfo .info_block img,
+  .App .StarShipsDetailsInfo .info_block img,
+  .App .VehiclesDetailsInfo .info_block img,
+  .App .PlanetDetailsInfo .info_block img {
+    transform: scale(1);
+    margin: 5px;
+  }
+  .App .DetailsInfo .info_block h3,
+  .App .SpeciesDetailsInfo .info_block h3,
+  .App .StarShipsDetailsInfo .info_block h3,
+  .App .VehiclesDetailsInfo .info_block h3,
+  .App .PlanetDetailsInfo .info_block h3 {
+    margin-bottom: 0;
+  }
+  .App .Row .LiItems {
+    padding: 5px;
+  }
+}
+@media (max-width: 500px) {
+  .App .Header h1 {
+    width: 100%;
+  }
+  .App .Header .main_nav li {
+    display: none;
+  }
+}
+@media (max-width: 400px) {
+  .App .RandomPlanet {
+    display: none;
+  }
+  .App h1 {
+    font-size: 20px;
+  }
+  .App a {
+    font-size: 10px;
+  }
+  .App .Header h1 {
+    width: 100%;
+  }
+}

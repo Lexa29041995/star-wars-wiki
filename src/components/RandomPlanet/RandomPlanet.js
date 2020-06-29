@@ -11,7 +11,7 @@ export default class RandomPlanet extends React.Component {
     constructor() {
         super();
         this.updatePlanet();
-        setInterval(this.updatePlanet, 2000);
+        setInterval(this.updatePlanet, 5000);
     }
 
     swapi = new SwapiServices();

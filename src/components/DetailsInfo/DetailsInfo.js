@@ -35,7 +35,7 @@ export default class DetailsInfo extends React.Component {
     render () {
 
         if(!this.state.person) {
-            return <p>please, choose the character</p>
+            return <p className ='DetailsInfo'>Please, choose the character</p>
         }
 
         const { id, name, mass,
@@ -44,39 +44,39 @@ export default class DetailsInfo extends React.Component {
         return (
                 <div className ='DetailsInfo'>
                 <h3>{name}</h3>
-                <div className ="d-flex info_block">
-                    <img src ={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} alt='Person' />
-                        <ul className ='detail_infoblock'>
-                            <li>
-                                <span>mass: </span>
-                                <span>{mass} kg</span>
-                            </li>
-                            <li>
-                                <span>birth date: </span>
-                                <span>{birthDate}</span>
-                            </li>
-                            <li>
-                                <span>gender: </span>
-                                <span>{gender}</span>
-                            </li>
-                            <li>
-                                <span>hair color: </span>
-                                <span>{hairColor}</span>
-                            </li>
-                            <li>
-                                <span>height: </span>
-                                <span>{height} </span>
-                            </li>
-                            <li>
-                                <span>eye color: </span>
-                                <span>{eyeColor}</span>
-                            </li>
-                            <li>
-                                <span>created: </span>
-                                <span>{created}</span>
-                            </li>
-                        </ul>
-                    </div>
+                    <div className ="d-flex info_block">
+                        <img src ={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} alt='Person' />
+                            <ul className ='detail_infoblock'>
+                                <li>
+                                    <span>mass: </span>
+                                    <span>{mass} kg</span>
+                                </li>
+                                <li>
+                                    <span>birth date: </span>
+                                    <span>{birthDate}</span>
+                                </li>
+                                <li>
+                                    <span>gender: </span>
+                                    <span>{gender}</span>
+                                </li>
+                                <li>
+                                    <span>hair color: </span>
+                                    <span>{hairColor}</span>
+                                </li>
+                                <li>
+                                    <span>height: </span>
+                                    <span>{height} </span>
+                                </li>
+                                <li>
+                                    <span>eye color: </span>
+                                    <span>{eyeColor}</span>
+                                </li>
+                                <li>
+                                    <span>created: </span>
+                                    <span>{created}</span>
+                                </li>
+                            </ul>
+                        </div>
                         {/* <ErrorTest /> */}
                     </div>
                     ) 
@@ -84,4 +84,5 @@ export default class DetailsInfo extends React.Component {
     }
     
 }
+
 

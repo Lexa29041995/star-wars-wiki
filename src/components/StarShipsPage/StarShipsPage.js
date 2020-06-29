@@ -13,7 +13,7 @@ export default class StarShipsPage extends React.Component {
     swapi = new SwapiServices();
 
     state = {
-        selectedStarShips: 5,
+        selectedStarShips: 0,
         error: false,
     }
 

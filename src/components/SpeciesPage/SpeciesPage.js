@@ -13,7 +13,7 @@ export default class SpeciesPage extends React.Component {
     swapi = new SwapiServices();
 
     state = {
-        selectedSpecies: 2,
+        selectedSpecies: 0,
         error: false,
     }
 

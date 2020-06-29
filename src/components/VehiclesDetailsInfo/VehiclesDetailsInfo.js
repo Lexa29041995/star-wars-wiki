@@ -34,7 +34,7 @@ export default class VehiclesDetailsInfo extends React.Component {
     render () {
 
         if(!this.state.vehicle) {
-            return <p>Please, choose the vehcle!</p>
+            return <p className ='VehiclesDetailsInfo'>Please, choose the vehcle!</p>
         }
 
         const { id, name, model,

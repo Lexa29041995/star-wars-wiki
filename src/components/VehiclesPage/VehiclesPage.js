@@ -13,7 +13,7 @@ export default class VehiclesPage extends React.Component {
     swapi = new SwapiServices();
 
     state = {
-        selectedVehicles: 7,
+        selectedVehicles: 0,
         error: false,
     }
 

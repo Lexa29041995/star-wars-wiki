@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "Proxima Nova";
+  src: url(proxima-nova-regular.ttf);
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url(OpenSans-Regular.ttf);
+  font-style: normal;
+  font-weight: normal;
+}

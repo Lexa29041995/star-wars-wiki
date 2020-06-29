@@ -14,7 +14,7 @@ import withData from '../helpers/withData';
             const text = renderItem(item)
             return (
                 <li 
-                className = 'list-group-item'
+                className = 'list-group-item LiItems'
                 key = {item.id}
                 onClick = {() => onItemClick(item.id)}
                 > 

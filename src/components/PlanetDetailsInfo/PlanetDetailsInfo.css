@@ -1,25 +1,23 @@
 .PlanetDetailsInfo {
-    background-color: grey;
-    padding: 15px;
-    height: 100%;
+  background-color: grey;
+  padding: 15px;
+  height: 100%;
+  text-align: center;
 }
-
 .PlanetDetailsInfo .info_block {
-    align-items: center;
-    flex-direction: column;
+  align-items: center;
+  flex-direction: column;
 }
-
 .PlanetDetailsInfo h3 {
-    text-align: center;
+  text-align: center;
 }
-
 .PlanetDetailsInfo .info_block img {
-    width: 50%;
-    transform: scale(3);
-    margin: 80px 0;
+  width: 50%;
+  transform: scale(3);
+  margin: 70px 0;
 }
 .PlanetDetailsInfo .detail_infoblock {
-    list-style: none;
-    text-align: center;
-    padding: 0;
+  list-style: none;
+  text-align: center;
+  padding: 0;
 }

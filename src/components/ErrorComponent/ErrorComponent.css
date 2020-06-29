@@ -1,11 +1,10 @@
 .ErrorComponent {
-    text-align: center;
+  text-align: center;
 }
-
 .ErrorComponent > p {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 img {
-    max-width: 70px;
+  max-width: 70px;
 }

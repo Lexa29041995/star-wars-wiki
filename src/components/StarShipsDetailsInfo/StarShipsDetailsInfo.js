@@ -35,7 +35,7 @@ export default class StarShipsDetailsInfo extends React.Component {
     render () {
 
         if(!this.state.starship) {
-            return <p>Please, choose the starship!</p>
+            return <p className ='StarShipsDetailsInfo'>Please, choose the starship!</p>
         }
 
         const { id, name, model,

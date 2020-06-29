@@ -13,7 +13,7 @@ export default class PeoplePage extends React.Component {
     swapi = new SwapiServices();
 
     state = {
-        selectedPerson: 3,
+        selectedPerson: 0,
         error: false,
     }
 
@@ -25,7 +25,7 @@ export default class PeoplePage extends React.Component {
         this.setState({
             selectedPerson: id
         });
-      }
+    }
 
     render () {
         if (this.state.error) {

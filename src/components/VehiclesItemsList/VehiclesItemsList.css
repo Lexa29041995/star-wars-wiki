@@ -1,14 +1,13 @@
 .VehiclesItemList {
-    background-color: #464141;
-    padding: 0px;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    cursor: pointer;
+  background-color: #464141;
+  padding: 0px;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
 }
-
 .VehiclesItemList li:hover {
-    background-color: grey;
+  background-color: grey;
 }

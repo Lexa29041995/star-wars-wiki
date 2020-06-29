@@ -35,7 +35,7 @@ export default class SpeciesDetailsInfo extends React.Component {
     render () {
 
         if(!this.state.species) {
-            return <p>Please, choose the species</p>
+            return <p className ='SpeciesDetailsInfo'>Please, choose the species</p>
         }
 
         const { id, name, classification,
