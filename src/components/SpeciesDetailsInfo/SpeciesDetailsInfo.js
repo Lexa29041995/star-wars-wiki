@@ -1,7 +1,5 @@
 import React from 'react';
 import './SpeciesDetailsInfo.css';
-import SwapiServices from '../../services/SwapiServices';
-import ErrorTest from '../ErrorTest';
 import SwapiContext from '../SwapiServiceContext';
 
 export default class SpeciesDetailsInfo extends React.Component {

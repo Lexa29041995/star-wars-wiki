@@ -1,6 +1,5 @@
 import React from 'react';
 import './VehiclesDetailsInfo.css';
-import ErrorTest from '../ErrorTest';
 import SwapiContext from '../SwapiServiceContext';
 
 export default class VehiclesDetailsInfo extends React.Component {

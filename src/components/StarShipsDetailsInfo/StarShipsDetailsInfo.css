@@ -13,8 +13,8 @@
 }
 .StarShipsDetailsInfo .info_block img {
   width: 50%;
-  transform: scale(4);
-  margin: 80px 0;
+  transform: scale(3.6);
+  margin: 70px 0;
 }
 .StarShipsDetailsInfo .detail_infoblock {
   list-style: none;

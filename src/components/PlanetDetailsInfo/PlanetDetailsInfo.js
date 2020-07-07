@@ -1,7 +1,5 @@
 import React from 'react';
 import './PlanetDetailsInfo.css';
-import SwapiServices from '../../services/SwapiServices';
-import ErrorTest from '../ErrorTest';
 import SwapiContext from '../SwapiServiceContext';
 
 export default class PlanetDetailsInfo extends React.Component {
